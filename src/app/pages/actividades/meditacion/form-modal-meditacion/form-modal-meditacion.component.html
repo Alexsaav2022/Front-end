@@ -1,0 +1,47 @@
+<div class="modal-header">
+  <h4 class="modal-title">{{title}} Programa</h4>
+  <button type="button" class="close" aria-label="Close button" aria-describedby="modal-title" (click)="activeModal.dismiss()">
+    <span aria-hidden="true">x</span>
+  </button>
+</div>
+<div class="modal-body">
+  <form [formGroup]="frmMeditacion">
+    <div class="form-group row">
+      <label class="col-sm-3 col-form-label">Ingrese la reflexión</label>
+      <div class="col-sm-9">
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Reflexión</mat-label>
+          <input autocomplete="off" formControlName="mediReflexion" matInput>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label class="col-sm-3 col-form-label">Ingrese el versiculo de la reflexión</label>
+      <div class="col-sm-9">
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Versiculo</mat-label>
+          <input autocomplete="off" formControlName="mediVersiculo" matInput>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label class="col-sm-3 col-form-label">Ingrese la oración</label>
+      <div class="col-sm-9">
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Oración</mat-label>
+          <input autocomplete="off" formControlName="mediOracion" matInput>
+        </mat-form-field>
+      </div>
+    </div>
+
+  </form>
+</div>
+
+<div class="modal-footer">
+  <button type="button" style="background-color: #0F3971;" [disabled]="frmMeditacion.invalid" *ngIf="title =='Nuevo'" class="btn btn-primary" (click)="save()">Guardar</button>
+  <button type="button" style="background-color: #0F3971;" [disabled]="frmMeditacion.invalid" *ngIf="title =='Modificar'" class="btn btn-primary" (click)="update()">Modificar</button>
+  <button type="button" class="btn btn-outline-secondary" (click)="activeModal.dismiss()">Cancelar</button>
+</div>
+<pre>{{frmMeditacion.value | json}}</pre>

@@ -1,0 +1,30 @@
+<button type="button" style="background-color: #0F3971;" (click)="openModal()" class="float-right btn btn-primary mb-2">Nuevo</button>
+<div class="table-responsive">
+  <table class="table table-bordered table-striped">
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>Taller</th>
+      <th>Respuesta 1</th>
+      <th>Respuesta 2</th>
+      <th>Respuesta 3</th>
+      <th colspan="2" class="text-center">Opciones</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let encuesta of encuestas; index as i">
+      <td>{{i+1}}</td>
+      <td>{{encuesta.taller.tallTema}}</td>
+      <td>{{encuesta.encuRespuestaUno}}</td>
+      <td>{{encuesta.encuRespuestaDos}}</td>
+      <td>{{encuesta.encuRespuestaTres}}</td>
+      <td class="text-center">
+        <button type="button" class="btn btn-warning" (click)="openModalEdit(encuesta)">Editar</button>
+      </td>
+      <td class="text-center">
+        <button type="button" class="btn btn-danger" (click)="onDelete(encuesta)">Eliminar</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>

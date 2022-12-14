@@ -1,0 +1,29 @@
+<button type="button" style="background-color: #0F3971;" (click)="openModal()" class="float-right btn btn-primary mb-2">Nuevo</button>
+<div class="table-responsive">
+  <table class="table table-bordered table-striped">
+    <thead>
+    <tr>
+      <th>ID</th>
+
+      <th>Versiculo</th>
+      <th>Reflexión</th>
+      <th>Oracion</th>
+      <th colspan="2" class="text-center">Opciones</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let meditacion of meditaciones; index as i">
+      <td>{{i+1}}</td>
+      <td>{{meditacion.mediVersiculo}}</td>
+      <td>{{meditacion.mediReflexion}}</td>
+      <td>{{meditacion.mediOracion}}</td>
+      <td class="text-center">
+        <button type="button" class="btn btn-warning" (click)="openModalEdit(meditacion)">Editar</button>
+      </td>
+      <td class="text-center">
+        <button type="button" class="btn btn-danger" (click)="onDelete(meditacion)">Eliminar</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
